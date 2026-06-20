@@ -41,85 +41,45 @@ ${formData.message}`;
 
       <section className="section">
         <div className="container">
-          <div className="contact-grid">
-            <div className="contact-info-section slide-up">
-              <h2 className="section-title" style={{ textAlign: 'left' }}>Get In Touch</h2>
-              <p className="contact-intro">
-                Whether you need a quick restock of metal badges or are planning to procure uniforms for the entire school, we're here to help.
-              </p>
+          <div className="contact-info-section slide-up">
+            <h2 className="section-title" style={{ textAlign: 'center' }}>Get In Touch</h2>
+            <p className="contact-intro" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto 3rem' }}>
+              Whether you need a quick restock of metal badges or are planning to procure uniforms for the entire school, we're here to help.
+            </p>
 
-              <div className="contact-cards">
-                <div className="contact-card">
-                  <div className="contact-icon-box"><Phone size={24} /></div>
-                  <div className="contact-card-info">
-                    <h3>Call Us</h3>
-                    <p><a href="tel:+919442100647">+91 94421 00647</a></p>
-                    <p><a href="tel:+919751000647">+91 97510 00647</a></p>
-                  </div>
-                </div>
-
-                <div className="contact-card">
-                  <div className="contact-icon-box"><Mail size={24} /></div>
-                  <div className="contact-card-info">
-                    <h3>Email Us</h3>
-                    <p><a href="mailto:triggerdistributor@gmail.com">triggerdistributor@gmail.com</a></p>
-                  </div>
-                </div>
-
-                <div className="contact-card">
-                  <div className="contact-icon-box"><MapPin size={24} /></div>
-                  <div className="contact-card-info">
-                    <h3>Our Address</h3>
-                    <p>Chittapurath House, Koottala Road,<br/>Thiruvilwamala – 680594,<br/>Thrissur Dt., Kerala</p>
-                  </div>
-                </div>
-
-                <div className="contact-card">
-                  <div className="contact-icon-box"><Clock size={24} /></div>
-                  <div className="contact-card-info">
-                    <h3>Business Hours</h3>
-                    <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
-                    <p>Sunday: Closed</p>
-                  </div>
+            <div className="contact-cards">
+              <div className="contact-card">
+                <div className="contact-icon-box"><Phone size={24} /></div>
+                <div className="contact-card-info">
+                  <h3>Call Us</h3>
+                  <p><a href="tel:+919442100647">+91 94421 00647</a></p>
+                  <p><a href="tel:+919751000647">+91 97510 00647</a></p>
                 </div>
               </div>
-            </div>
 
-            <div className="contact-form-section slide-up delay-200">
-              <div className="contact-form-container">
-                <h3>Send us a Message</h3>
-                {submitted ? (
-                  <div className="success-message">
-                    <h3>Message Sent Successfully!</h3>
-                    <p>We will get back to you shortly.</p>
-                  </div>
-                ) : (
-                  <form className="contact-form" onSubmit={handleSubmit}>
-                    <div className="form-group">
-                      <label htmlFor="name">Your Name *</label>
-                      <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="school">School Name *</label>
-                      <input type="text" id="school" name="school" required value={formData.school} onChange={handleChange} />
-                    </div>
-                    <div className="form-row">
-                      <div className="form-group">
-                        <label htmlFor="phone">Phone Number *</label>
-                        <input type="tel" id="phone" name="phone" required value={formData.phone} onChange={handleChange} />
-                      </div>
-                      <div className="form-group">
-                        <label htmlFor="email">Email Address</label>
-                        <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
-                      </div>
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="message">How can we help you? *</label>
-                      <textarea id="message" name="message" rows="5" required value={formData.message} onChange={handleChange}></textarea>
-                    </div>
-                    <button type="submit" className="btn btn-primary submit-btn">Send Message</button>
-                  </form>
-                )}
+              <div className="contact-card">
+                <div className="contact-icon-box"><Mail size={24} /></div>
+                <div className="contact-card-info">
+                  <h3>Email Us</h3>
+                  <p><a href="mailto:triggerdistributor@gmail.com">triggerdistributor@gmail.com</a></p>
+                </div>
+              </div>
+
+              <div className="contact-card">
+                <div className="contact-icon-box"><MapPin size={24} /></div>
+                <div className="contact-card-info">
+                  <h3>Our Address</h3>
+                  <p>Chittapurath House, Koottala Road,<br/>Thiruvilwamala – 680594,<br/>Thrissur Dt., Kerala</p>
+                </div>
+              </div>
+
+              <div className="contact-card">
+                <div className="contact-icon-box"><Clock size={24} /></div>
+                <div className="contact-card-info">
+                  <h3>Business Hours</h3>
+                  <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                  <p>Sunday: Closed</p>
+                </div>
               </div>
             </div>
           </div>

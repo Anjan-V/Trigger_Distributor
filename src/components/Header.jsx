@@ -40,7 +40,8 @@ const Header = () => {
           <Link to="/products" className={`nav-link ${isActive('/products')}`}>Products</Link>
           <Link to="/gallery" className={`nav-link ${isActive('/gallery')}`}>Gallery</Link>
           <Link to="/reviews" className={`nav-link ${isActive('/reviews')}`}>Reviews</Link>
-          <Link to="/contact" className="btn btn-primary nav-btn">Get a Quote</Link>
+          <Link to="/contact" className={`nav-link ${isActive('/contact')}`}>Contact Us</Link>
+          <Link to="/quote" className="btn btn-primary nav-btn">Get a Quote</Link>
         </div>
 
         <button className="mobile-menu-btn" onClick={toggleMenu}>
@@ -56,7 +57,8 @@ const Header = () => {
           <Link to="/products" className={`mobile-link ${isActive('/products')}`} onClick={closeMenu}>Products</Link>
           <Link to="/gallery" className={`mobile-link ${isActive('/gallery')}`} onClick={closeMenu}>Gallery</Link>
           <Link to="/reviews" className={`mobile-link ${isActive('/reviews')}`} onClick={closeMenu}>Reviews</Link>
-          <Link to="/contact" className="btn btn-primary" onClick={closeMenu}>Get a Quote</Link>
+          <Link to="/contact" className={`mobile-link ${isActive('/contact')}`} onClick={closeMenu}>Contact Us</Link>
+          <Link to="/quote" className="btn btn-primary" onClick={closeMenu}>Get a Quote</Link>
         </div>
       </div>
     </header>

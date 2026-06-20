@@ -20,7 +20,7 @@ const Home = () => {
             Providing high-quality books, uniforms, badges, and more to educational institutions with unmatched reliability.
           </p>
           <div className="hero-actions fade-in delay-200">
-            <Link to="/contact" className="btn btn-primary">Get a Quote</Link>
+            <Link to="/quote" className="btn btn-primary">Get a Quote</Link>
             <Link to="/products" className="btn btn-outline">Explore Products</Link>
           </div>
         </div>

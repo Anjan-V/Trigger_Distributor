@@ -9,6 +9,7 @@ import Products from './pages/Products';
 import Gallery from './pages/Gallery';
 import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
+import Quote from './pages/Quote';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/quote" element={<Quote />} />
           </Routes>
         </main>
         <Footer />
