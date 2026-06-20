@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './ProductCard.css';
 
 const ProductCard = ({ title, description, icon: Icon, image, delay }) => {
@@ -8,7 +9,7 @@ const ProductCard = ({ title, description, icon: Icon, image, delay }) => {
         <div className="product-image-container">
           <img src={image} alt={title} className="product-image" />
           <div className="product-overlay">
-            <span className="btn btn-primary">View Category</span>
+            <Link to="/products" className="btn btn-primary">View Category</Link>
           </div>
         </div>
       ) : (

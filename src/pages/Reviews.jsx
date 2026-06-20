@@ -34,7 +34,9 @@ const Reviews = () => {
     const savedReviews = localStorage.getItem('triggerReviews');
     if (savedReviews) {
       try {
-        return JSON.parse(savedReviews);
+        const parsed = JSON.parse(savedReviews);
+        const filtered = parsed.filter(r => r.name !== 'Anjan Nair');
+        return filtered.length > 0 ? filtered : defaultReviews;
       } catch (e) {
         console.error("Failed to parse reviews from localStorage", e);
       }

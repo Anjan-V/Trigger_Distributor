@@ -2,6 +2,9 @@ import React from 'react';
 import heroBanner from '../assets/hero_banner.png';
 import schoolSupplies from '../assets/school_supplies.png';
 import sportsUniforms from '../assets/sports_uniforms.png';
+import bulkDispatch from '../assets/bulk_dispatch.png';
+import booksGuides from '../assets/books_guides.png';
+import casualWear from '../assets/casual_wear.png';
 import './Gallery.css';
 
 const Gallery = () => {
@@ -9,9 +12,9 @@ const Gallery = () => {
     { src: heroBanner, alt: "Premium School Supplies Collection", title: "Premium Supplies" },
     { src: schoolSupplies, alt: "Badges and Ties setup", title: "Badges & Accessories" },
     { src: sportsUniforms, alt: "School Sports Jerseys", title: "School & Sports Uniforms" },
-    { src: bulkdispatch, alt: "Packed Orders ready for dispatch", title: "Bulk Dispatch" },
-    { src: schoolSupplies, alt: "Exam Papers and Guides", title: "Books & Guides" },
-    { src: sportsUniforms, alt: "Tracksuits Collection", title: "Winter Wear" }
+    { src: bulkDispatch, alt: "Packed Orders ready for dispatch", title: "Bulk Dispatch" },
+    { src: booksGuides, alt: "Exam Papers and Guides", title: "Books & Guides" },
+    { src: casualWear, alt: "Casual Wear Collection", title: "Casual Wear" }
   ];
 
   return (
