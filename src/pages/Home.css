@@ -123,10 +123,10 @@
 }
 
 .cta-section {
-  background-color: var(--color-secondary);
+  background-color: var(--color-white);
   padding: 6rem 0;
   text-align: center;
-  color: var(--color-white);
+  color: var(--color-text-main);
   position: relative;
 }
 
@@ -135,14 +135,14 @@
 }
 
 .cta-title {
-  color: var(--color-white);
+  color: var(--color-primary);
   font-size: 2.5rem;
   margin-bottom: 1.5rem;
 }
 
 .cta-subtitle {
   font-size: 1.1rem;
-  color: #B0B8C1;
+  color: var(--color-text-muted);
   margin-bottom: 2.5rem;
 }
 
