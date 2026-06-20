@@ -11,6 +11,7 @@ import Gallery from './pages/Gallery';
 import Reviews from './pages/Reviews';
 import Contact from './pages/Contact';
 import Quote from './pages/Quote';
+import Category from './pages/Category';
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
             <Route path="/reviews" element={<Reviews />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/quote" element={<Quote />} />
+            <Route path="/category/:categoryName" element={<Category />} />
           </Routes>
         </main>
         <Footer />
