@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Star, StarHalf } from 'lucide-react';
 import ReviewCard from '../components/ReviewCard';
 import './Reviews.css';
 
@@ -82,6 +83,26 @@ const Reviews = () => {
     setSubmitted(true);
   };
 
+  const averageRating = reviews.length > 0 
+    ? (reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length).toFixed(1)
+    : 0;
+
+  const renderStars = (rating) => {
+    return (
+      <div className="review-stars overall-stars">
+        {[...Array(5)].map((_, i) => {
+          if (rating >= i + 1) {
+            return <Star key={i} size={28} className="star-filled" fill="currentColor" />;
+          } else if (rating >= i + 0.5) {
+            return <StarHalf key={i} size={28} className="star-filled" fill="currentColor" />;
+          } else {
+            return <Star key={i} size={28} className="star-empty" fill="none" />;
+          }
+        })}
+      </div>
+    );
+  };
+
   return (
     <div className="reviews-page">
       <div className="page-header">
@@ -93,6 +114,18 @@ const Reviews = () => {
 
       <section className="section">
         <div className="container">
+          <div className="overall-rating-container slide-up">
+            <div className="overall-rating-content">
+              <h2 className="overall-rating-title">Overall Rating</h2>
+              <div className="overall-rating-score-box">
+                <span className="score-number">{averageRating}</span>
+                <span className="score-out-of">/ 5</span>
+              </div>
+              {renderStars(parseFloat(averageRating))}
+              <p className="total-reviews-count">Based on {reviews.length} reviews</p>
+            </div>
+          </div>
+
           <div className="reviews-grid">
             {reviews.map((review, index) => (
               <ReviewCard key={index} {...review} />

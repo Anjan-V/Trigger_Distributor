@@ -1,19 +1,20 @@
 import React from 'react';
-import { Star } from 'lucide-react';
+import { Star, StarHalf } from 'lucide-react';
 import './ReviewCard.css';
 
 const ReviewCard = ({ name, school, rating, comment, delay }) => {
   return (
     <div className={`review-card slide-up delay-${delay}`}>
       <div className="review-stars">
-        {[...Array(5)].map((_, i) => (
-          <Star 
-            key={i} 
-            size={18} 
-            className={i < rating ? "star-filled" : "star-empty"} 
-            fill={i < rating ? "currentColor" : "none"}
-          />
-        ))}
+        {[...Array(5)].map((_, i) => {
+          if (rating >= i + 1) {
+            return <Star key={i} size={18} className="star-filled" fill="currentColor" />;
+          } else if (rating >= i + 0.5) {
+            return <StarHalf key={i} size={18} className="star-filled" fill="currentColor" />;
+          } else {
+            return <Star key={i} size={18} className="star-empty" fill="none" />;
+          }
+        })}
       </div>
       <p className="review-comment">"{comment}"</p>
       <div className="review-author">
