@@ -1,5 +1,5 @@
 .footer {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-light);
   color: var(--color-white);
   padding-top: 2rem;
 }
@@ -7,7 +7,7 @@
 .footer-content-horizontal {
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1.5rem;
   margin-bottom: 2rem;
@@ -19,6 +19,12 @@
   gap: 0.5rem;
   color: #B0B8C1;
   font-size: 0.9rem;
+}
+
+.footer-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
 .footer-item a {
@@ -125,7 +131,6 @@
 }
 
 .footer-bottom {
-  background-color: var(--color-primary-light);
   padding: 1.5rem 0;
   text-align: center;
   color: #B0B8C1;

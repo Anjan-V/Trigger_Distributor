@@ -16,9 +16,15 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="footer-item">
-          <MapPin size={18} className="contact-icon" />
-          <span>Thiruvilwamala – 680594, Thrissur Dt., Kerala</span>
+        <div className="footer-column">
+          <div className="footer-item">
+            <MapPin size={18} className="contact-icon" />
+            <span>Thiruvilwamala – 680594, Thrissur Dt., Kerala</span>
+          </div>
+          <div className="footer-item">
+            <Clock size={18} className="contact-icon" />
+            <span>Mon - Sat: 9am - 6pm</span>
+          </div>
         </div>
 
         <div className="footer-item">
@@ -29,11 +35,6 @@ const Footer = () => {
         <div className="footer-item">
           <Mail size={18} className="contact-icon" />
           <a href="mailto:triggerdistributor@gmail.com">triggerdistributor@gmail.com</a>
-        </div>
-
-        <div className="footer-item">
-          <Clock size={18} className="contact-icon" />
-          <span>Mon - Sat: 9am - 6pm</span>
         </div>
       </div>
       <div className="footer-bottom">
