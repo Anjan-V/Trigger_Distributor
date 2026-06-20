@@ -9,7 +9,7 @@ const Gallery = () => {
     { src: heroBanner, alt: "Premium School Supplies Collection", title: "Premium Supplies" },
     { src: schoolSupplies, alt: "Badges and Ties setup", title: "Badges & Accessories" },
     { src: sportsUniforms, alt: "School Sports Jerseys", title: "School & Sports Uniforms" },
-    { src: heroBanner, alt: "Packed Orders ready for dispatch", title: "Bulk Dispatch" },
+    { src: bulkdispatch, alt: "Packed Orders ready for dispatch", title: "Bulk Dispatch" },
     { src: schoolSupplies, alt: "Exam Papers and Guides", title: "Books & Guides" },
     { src: sportsUniforms, alt: "Tracksuits Collection", title: "Winter Wear" }
   ];
