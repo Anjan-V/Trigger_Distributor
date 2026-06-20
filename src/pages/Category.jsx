@@ -1,7 +1,8 @@
-import React from 'react';
 import { useParams } from 'react-router-dom';
 import tieImage from '../assets/Tie.jpeg';
 import beltsImage from '../assets/belts.jpeg';
+import badgesImage from '../assets/school_badges.png';
+import './Category.css';
 
 const Category = () => {
   const { categoryName } = useParams();
@@ -10,32 +11,46 @@ const Category = () => {
   const renderContent = () => {
     if (decodedName === 'Belts, Ties & Badges') {
       return (
-        <div className="container" style={{ padding: '4rem 0', display: 'flex', flexDirection: 'column', gap: '4rem' }}>
+        <div className="container category-items">
           
-          {/* First Item: Tie */}
-          <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <div style={{ flex: '1 1 300px', maxWidth: '400px', textAlign: 'center' }}>
-              <img src={tieImage} alt="Tie" style={{ width: '100%', borderRadius: '12px', boxShadow: '0 8px 16px rgba(0,0,0,0.1)' }} />
-              <h3 style={{ marginTop: '1.5rem', color: 'var(--primary)', fontSize: '1.5rem', fontWeight: 'bold' }}>Tie</h3>
+          {/* First Item: Belts */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={beltsImage} alt="Belts" />
+              <h3>Belts</h3>
             </div>
-            <div style={{ flex: '2 1 400px', padding: '1rem' }}>
-              <h2 style={{ color: 'var(--primary)', marginBottom: '1rem' }}>Premium School Ties</h2>
-              <p style={{ color: 'var(--text-light)', lineHeight: '1.8', fontSize: '1.1rem' }}>
+            <div className="category-item-content">
+              <h2>High-Quality Belts</h2>
+              <p>
+                Our belts feature sturdy, rust-resistant buckles and strong, flexible webbing for long-lasting comfort. They are engineered to withstand the rigors of daily school life, ensuring a secure and adjustable fit while maintaining a polished, school-approved look.
+              </p>
+            </div>
+          </div>
+
+          {/* Second Item: Ties */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={tieImage} alt="Ties" />
+              <h3>Ties</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>Premium School Ties</h2>
+              <p>
                 Our ties are crafted from premium woven fabric designed to maintain its shape and vibrant color wash after wash. They are meticulously tailored to provide a professional and neat appearance, perfectly matching your school's uniform standards while offering exceptional durability for daily wear.
               </p>
             </div>
           </div>
 
-          {/* Second Item: Belts */}
-          <div style={{ display: 'flex', gap: '3rem', alignItems: 'center', flexWrap: 'wrap' }}>
-            <div style={{ flex: '1 1 300px', maxWidth: '400px', textAlign: 'center' }}>
-              <img src={beltsImage} alt="Belts" style={{ width: '100%', borderRadius: '12px', boxShadow: '0 8px 16px rgba(0,0,0,0.1)' }} />
-              <h3 style={{ marginTop: '1.5rem', color: 'var(--primary)', fontSize: '1.5rem', fontWeight: 'bold' }}>Belts</h3>
+          {/* Third Item: Badges */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={badgesImage} alt="Badges" />
+              <h3>Badges</h3>
             </div>
-            <div style={{ flex: '2 1 400px', padding: '1rem' }}>
-              <h2 style={{ color: 'var(--primary)', marginBottom: '1rem' }}>High-Quality Belts</h2>
-              <p style={{ color: 'var(--text-light)', lineHeight: '1.8', fontSize: '1.1rem' }}>
-                Our belts feature sturdy, rust-resistant buckles and strong, flexible webbing for long-lasting comfort. They are engineered to withstand the rigors of daily school life, ensuring a secure and adjustable fit while maintaining a polished, school-approved look.
+            <div className="category-item-content">
+              <h2>Precision-Crafted Badges</h2>
+              <p>
+                Each badge is meticulously crafted with precise detailing using high-quality metal and vibrant enamel finishes. From prefect shields to lapel pins, our badges are designed to represent your school's identity with pride and durability that lasts throughout the academic year. Both metal and cloth badges are available to suit your institution's requirements.
               </p>
             </div>
           </div>

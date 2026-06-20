@@ -5,7 +5,7 @@ import heroBanner from '../assets/hero_banner.png';
 import examPapersImage from '../assets/exam_papers.png';
 import packingCoversImage from '../assets/packing_covers.png';
 import socksAccessoriesImage from '../assets/socks_accessories.png';
-import aiImage from '../assets/Tie.jpeg';
+import beltsTiesBadgesImage from '../assets/belts_ties_badges.png';
 import './Products.css';
 
 const Products = () => {
@@ -28,7 +28,7 @@ const Products = () => {
       title: "Belts, Ties & Badges",
       description: "Custom-embroidered school ties, adjustable belts, and precisely crafted metal and cloth badges.",
       icon: Shield,
-      image: aiImage,
+      image: beltsTiesBadgesImage,
       delay: "300"
     },
     {
