@@ -3,7 +3,7 @@ import ReviewCard from '../components/ReviewCard';
 import './Reviews.css';
 
 const Reviews = () => {
-  const [formData, setFormData] = useState({ name: '', school: '', rating: '5', comment: '' });
+  const [formData, setFormData] = useState({ name: '', school: '', rating: '5', customRating: '', comment: '' });
   const [submitted, setSubmitted] = useState(false);
   const [reviews, setReviews] = useState([
     {
@@ -30,15 +30,28 @@ const Reviews = () => {
   ]);
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    let value = e.target.value;
+    
+    // Enforce max 5 immediately on input change for customRating
+    if (e.target.name === 'customRating') {
+      if (parseFloat(value) > 5) value = '5';
+    }
+
+    setFormData({ ...formData, [e.target.name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    
+    let finalRating = formData.rating === 'custom' ? parseFloat(formData.customRating) : parseInt(formData.rating, 10);
+    if (isNaN(finalRating)) finalRating = 5;
+    if (finalRating > 5) finalRating = 5;
+    if (finalRating < 0) finalRating = 0;
+
     const newReview = {
       name: formData.name,
       school: formData.school,
-      rating: parseInt(formData.rating, 10),
+      rating: finalRating,
       comment: formData.comment,
       delay: "100"
     };
@@ -46,7 +59,7 @@ const Reviews = () => {
     setReviews([newReview, ...reviews]);
     
     // Reset form and show success
-    setFormData({ name: '', school: '', rating: '5', comment: '' });
+    setFormData({ name: '', school: '', rating: '5', customRating: '', comment: '' });
     setSubmitted(true);
   };
 
@@ -97,8 +110,26 @@ const Reviews = () => {
                     <option value="3">3 - Average</option>
                     <option value="2">2 - Poor</option>
                     <option value="1">1 - Terrible</option>
+                    <option value="custom">Custom</option>
                   </select>
                 </div>
+                {formData.rating === 'custom' && (
+                  <div className="form-group slide-up">
+                    <label htmlFor="customRating">Enter Custom Rating (Max 5)</label>
+                    <input 
+                      type="number" 
+                      id="customRating" 
+                      name="customRating" 
+                      min="0" 
+                      max="5" 
+                      step="0.1" 
+                      required 
+                      value={formData.customRating} 
+                      onChange={handleChange} 
+                      placeholder="e.g. 4.5"
+                    />
+                  </div>
+                )}
                 <div className="form-group">
                   <label htmlFor="comment">Your Review</label>
                   <textarea id="comment" name="comment" rows="4" required value={formData.comment} onChange={handleChange}></textarea>
