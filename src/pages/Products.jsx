@@ -4,6 +4,9 @@ import ProductCard from '../components/ProductCard';
 import sportsUniformsImage from '../assets/sports_uniforms.png';
 import schoolSuppliesImage from '../assets/school_supplies.png';
 import heroBanner from '../assets/hero_banner.png';
+import examPapersImage from '../assets/exam_papers.png';
+import packingCoversImage from '../assets/packing_covers.png';
+import socksAccessoriesImage from '../assets/socks_accessories.png';
 import './Products.css';
 
 const Products = () => {
@@ -32,19 +35,19 @@ const Products = () => {
     {
       title: "Exam Papers",
       description: "Standardized examination answer sheets, graph papers, and custom-printed school exam booklets.",
-      icon: FileText,
+      image: examPapersImage,
       delay: "100"
     },
     {
       title: "Packing Covers",
       description: "Durable brown covers, plastic sleeves, and custom-branded packing materials for books.",
-      icon: Package,
+      image: packingCoversImage,
       delay: "200"
     },
     {
       title: "Socks & Accessories",
       description: "Comfortable, durable school socks and other essential daily wear accessories.",
-      icon: LayoutGrid,
+      image: socksAccessoriesImage,
       delay: "300"
     }
   ];

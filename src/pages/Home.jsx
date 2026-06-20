@@ -4,6 +4,8 @@ import { ArrowRight, BookOpen, Shirt, Shield } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import './Home.css';
 import heroBanner from '../assets/hero_banner.png';
+import sportsUniformsImage from '../assets/sports_uniforms.png';
+import schoolSuppliesImage from '../assets/school_supplies.png';
 
 const Home = () => {
   return (
@@ -68,19 +70,19 @@ const Home = () => {
             <ProductCard 
               title="Books & Guides" 
               description="Comprehensive range of textbooks, notebooks, and study guides for all boards."
-              icon={BookOpen}
+              image={heroBanner}
               delay="100"
             />
             <ProductCard 
               title="Sports & Uniforms" 
               description="Durable, comfortable sports kits, tracksuits, belts, ties, and daily uniforms."
-              icon={Shirt}
+              image={sportsUniformsImage}
               delay="200"
             />
             <ProductCard 
               title="Badges & Accessories" 
               description="Custom metal and cloth badges, socks, packing covers, and exam papers."
-              icon={Shield}
+              image={schoolSuppliesImage}
               delay="300"
             />
           </div>
