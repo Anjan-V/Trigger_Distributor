@@ -19,7 +19,7 @@ const Products = () => {
       delay: "100"
     },
     {
-      title: "Sports Uniforms",
+      title: "School & Sports Uniforms",
       description: "High-quality, breathable tracksuits, jerseys, and PT uniforms designed for active students.",
       icon: Shirt,
       image: sportsUniformsImage,

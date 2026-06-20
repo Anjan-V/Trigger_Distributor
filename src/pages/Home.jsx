@@ -74,7 +74,7 @@ const Home = () => {
               delay="100"
             />
             <ProductCard 
-              title="Sports & Uniforms" 
+              title="School & Sports Uniforms" 
               description="Durable, comfortable sports kits, tracksuits, belts, ties, and daily uniforms."
               image={sportsUniformsImage}
               delay="200"
