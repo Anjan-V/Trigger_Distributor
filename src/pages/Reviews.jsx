@@ -2,32 +2,49 @@ import React, { useState } from 'react';
 import ReviewCard from '../components/ReviewCard';
 import './Reviews.css';
 
+const defaultReviews = [
+  {
+    name: "Principal Rajesh K.",
+    school: "St. Mary's Public School",
+    rating: 5,
+    comment: "Trigger Distributor has been our sole supplier for the past 4 years. Their quality of uniforms and timely delivery of books have made our academic preparations completely stress-free.",
+    delay: "100"
+  },
+  {
+    name: "Anitha V.",
+    school: "Little Flower High School",
+    rating: 5,
+    comment: "The custom metal badges they created for our student council were phenomenal. Highly professional team, always reachable via WhatsApp.",
+    delay: "200"
+  },
+  {
+    name: "Suresh Menon",
+    school: "Bharathiya Vidya Bhavan",
+    rating: 4,
+    comment: "Very competitive pricing on bulk exam papers and packing covers. A trustworthy vendor in the Thrissur region.",
+    delay: "300"
+  }
+];
+
 const Reviews = () => {
   const [formData, setFormData] = useState({ name: '', school: '', rating: '5', customRating: '', comment: '' });
   const [submitted, setSubmitted] = useState(false);
-  const [reviews, setReviews] = useState([
-    {
-      name: "Principal Rajesh K.",
-      school: "St. Mary's Public School",
-      rating: 5,
-      comment: "Trigger Distributor has been our sole supplier for the past 4 years. Their quality of uniforms and timely delivery of books have made our academic preparations completely stress-free.",
-      delay: "100"
-    },
-    {
-      name: "Anitha V.",
-      school: "Little Flower High School",
-      rating: 5,
-      comment: "The custom metal badges they created for our student council were phenomenal. Highly professional team, always reachable via WhatsApp.",
-      delay: "200"
-    },
-    {
-      name: "Suresh Menon",
-      school: "Bharathiya Vidya Bhavan",
-      rating: 4,
-      comment: "Very competitive pricing on bulk exam papers and packing covers. A trustworthy vendor in the Thrissur region.",
-      delay: "300"
+  
+  const [reviews, setReviews] = useState(() => {
+    const savedReviews = localStorage.getItem('triggerReviews');
+    if (savedReviews) {
+      try {
+        return JSON.parse(savedReviews);
+      } catch (e) {
+        console.error("Failed to parse reviews from localStorage", e);
+      }
     }
-  ]);
+    return defaultReviews;
+  });
+
+  React.useEffect(() => {
+    localStorage.setItem('triggerReviews', JSON.stringify(reviews));
+  }, [reviews]);
 
   const handleChange = (e) => {
     let value = e.target.value;
