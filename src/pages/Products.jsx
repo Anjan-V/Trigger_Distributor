@@ -1,6 +1,6 @@
 import { BookOpen, Shirt, Shield } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
-import sportsUniformsImage from '../assets/sports_uniforms.png';
+import uniformsComboImage from '../assets/uniforms_combo.png';
 import heroBanner from '../assets/hero_banner.png';
 import examPapersImage from '../assets/exam_papers.png';
 import packingCoversImage from '../assets/packing_covers.png';
@@ -21,7 +21,7 @@ const Products = () => {
       title: "School & Sports Uniforms",
       description: "High-quality, breathable tracksuits, jerseys, and PT uniforms designed for active students.",
       icon: Shirt,
-      image: sportsUniformsImage,
+      image: uniformsComboImage,
       delay: "200"
     },
     {

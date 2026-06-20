@@ -3,6 +3,8 @@ import tieImage from '../assets/Tie.jpeg';
 import beltsImage from '../assets/belts.jpeg';
 import badgesImage from '../assets/school_badges.png';
 import stateBoardImage from '../assets/state_board_uniforms.png';
+import cbseImage from '../assets/cbse_uniforms.png';
+import sportsImage from '../assets/sports_uniforms_cover.png';
 import './Category.css';
 
 const Category = () => {
@@ -80,7 +82,8 @@ const Category = () => {
 
           {/* Second Item: CBSE Uniforms */}
           <div className="category-item">
-            <div className="category-item-image category-item-placeholder">
+            <div className="category-item-image">
+              <img src={cbseImage} alt="CBSE Uniforms" />
               <h3>CBSE Uniforms</h3>
             </div>
             <div className="category-item-content">
@@ -93,7 +96,8 @@ const Category = () => {
 
           {/* Third Item: Sports Uniforms */}
           <div className="category-item">
-            <div className="category-item-image category-item-placeholder">
+            <div className="category-item-image">
+              <img src={sportsImage} alt="Sports Uniforms" />
               <h3>Sports Uniforms</h3>
             </div>
             <div className="category-item-content">
