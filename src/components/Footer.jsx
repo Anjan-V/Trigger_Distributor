@@ -21,16 +21,6 @@ const Footer = () => {
           </p>
         </div>
 
-        <div className="footer-section">
-          <h4 className="footer-heading">Quick Links</h4>
-          <ul className="footer-links">
-            <li><Link to="/">Home</Link></li>
-            <li><Link to="/about">About Us</Link></li>
-            <li><Link to="/products">Products</Link></li>
-            <li><Link to="/gallery">Gallery</Link></li>
-            <li><Link to="/reviews">Reviews</Link></li>
-          </ul>
-        </div>
 
         <div className="footer-section">
           <h4 className="footer-heading">Contact Details</h4>
