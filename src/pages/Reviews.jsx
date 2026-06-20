@@ -90,7 +90,7 @@ const Reviews = () => {
               <div className="success-message">
                 <h3>Thank you for your feedback!</h3>
                 <p>Your review has been submitted for approval.</p>
-                <button className="btn btn-outline" onClick={() => setSubmitted(false)}>Submit Another</button>
+                <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Submit Another</button>
               </div>
             ) : (
               <form className="review-form" onSubmit={handleSubmit}>
