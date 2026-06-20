@@ -5,8 +5,7 @@ import './Reviews.css';
 const Reviews = () => {
   const [formData, setFormData] = useState({ name: '', school: '', rating: '5', comment: '' });
   const [submitted, setSubmitted] = useState(false);
-
-  const existingReviews = [
+  const [reviews, setReviews] = useState([
     {
       name: "Principal Rajesh K.",
       school: "St. Mary's Public School",
@@ -28,7 +27,7 @@ const Reviews = () => {
       comment: "Very competitive pricing on bulk exam papers and packing covers. A trustworthy vendor in the Thrissur region.",
       delay: "300"
     }
-  ];
+  ]);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -36,8 +35,19 @@ const Reviews = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Simulate form submission
-    setTimeout(() => setSubmitted(true), 500);
+    const newReview = {
+      name: formData.name,
+      school: formData.school,
+      rating: parseInt(formData.rating, 10),
+      comment: formData.comment,
+      delay: "100"
+    };
+    
+    setReviews([newReview, ...reviews]);
+    
+    // Reset form and show success
+    setFormData({ name: '', school: '', rating: '5', comment: '' });
+    setSubmitted(true);
   };
 
   return (
@@ -52,7 +62,7 @@ const Reviews = () => {
       <section className="section">
         <div className="container">
           <div className="reviews-grid">
-            {existingReviews.map((review, index) => (
+            {reviews.map((review, index) => (
               <ReviewCard key={index} {...review} />
             ))}
           </div>
