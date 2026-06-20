@@ -64,7 +64,7 @@ const Products = () => {
         <div className="container">
           <div className="products-catalog">
             {productCategories.map((product) => (
-              <ProductCard 
+              <ProductCard
                 key={product.title}
                 title={product.title}
                 description={product.description}

@@ -73,3 +73,16 @@
   line-height: 1.8;
   font-size: 1.1rem;
 }
+
+.category-item-placeholder {
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+}
+
+.category-item-placeholder h3 {
+  color: #fff;
+  margin: 0;
+}
