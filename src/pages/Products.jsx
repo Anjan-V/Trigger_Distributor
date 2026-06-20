@@ -1,8 +1,6 @@
-import React from 'react';
-import { BookOpen, Shirt, Shield, FileText, Package, LayoutGrid } from 'lucide-react';
+import { BookOpen, Shirt, Shield } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import sportsUniformsImage from '../assets/sports_uniforms.png';
-import schoolSuppliesImage from '../assets/school_supplies.png';
 import heroBanner from '../assets/hero_banner.png';
 import examPapersImage from '../assets/exam_papers.png';
 import packingCoversImage from '../assets/packing_covers.png';
@@ -65,9 +63,9 @@ const Products = () => {
       <section className="section">
         <div className="container">
           <div className="products-catalog">
-            {productCategories.map((product, index) => (
+            {productCategories.map((product) => (
               <ProductCard 
-                key={index}
+                key={product.title}
                 title={product.title}
                 description={product.description}
                 icon={product.icon}
