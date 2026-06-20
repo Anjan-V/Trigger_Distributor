@@ -29,7 +29,7 @@ const About = () => {
                 <strong>Trigger Distributor</strong>, led by Prasad P, is a premier school supplies distribution business located in Thiruvilwamala, Thrissur District, Kerala.
               </p>
               <p className="about-text">
-                For over a decade, we have been the silent engine behind many prestigious educational institutions across Kerala. We understand that running a school requires dependable partners who deliver quality materials on time, every time.
+                For over a decade, we have been the silent engine behind many prestigious educational institutions across Kerala & TamilNadu. We understand that running a school requires dependable partners who deliver quality materials on time, every time.
               </p>
               <p className="about-text">
                 Our mission is to simplify the procurement process for school principals, trustees, and administration teams. By offering a comprehensive catalog ranging from custom uniforms and badges to textbooks and exam papers, we serve as a single, trustworthy point of contact for all your academic year preparations.

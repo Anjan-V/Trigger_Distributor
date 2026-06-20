@@ -55,7 +55,7 @@ const Reviews = () => {
       <div className="page-header">
         <div className="container">
           <h1 className="page-title fade-in">Client Testimonials</h1>
-          <p className="page-subtitle fade-in delay-100">Hear what schools across Kerala have to say about us.</p>
+          <p className="page-subtitle fade-in delay-100">Hear what schools across Kerala & TamilNadu have to say about us.</p>
         </div>
       </div>
 

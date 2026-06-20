@@ -15,7 +15,7 @@ const Home = () => {
           <div className="hero-overlay"></div>
         </div>
         <div className="container hero-content">
-          <h1 className="hero-title fade-in">Trusted School Supplies Partner Across Kerala</h1>
+          <h1 className="hero-title fade-in">Trusted School Supplies Partner Across Kerala & TamilNadu</h1>
           <p className="hero-subtitle fade-in delay-100">
             Providing high-quality books, uniforms, badges, and more to educational institutions with unmatched reliability.
           </p>
@@ -33,7 +33,7 @@ const Home = () => {
             <div className="intro-text slide-up">
               <h2 className="section-title" style={{ textAlign: 'left' }}>About Trigger Distributor</h2>
               <p>
-                Based in Thiruvilwamala, Thrissur District, Trigger Distributor is the go-to wholesale supplier for schools across Kerala. Led by Prasad P, we understand the unique needs of school management and procurement teams.
+                Based in Thiruvilwamala, Thrissur District, Trigger Distributor is the go-to wholesale supplier for schools across Kerala & TamilNadu. Led by Prasad P, we understand the unique needs of school management and procurement teams.
               </p>
               <p>
                 From student textbooks and tailored uniforms to custom metal badges and exam papers, we ensure timely delivery of premium goods so schools can focus on what matters most — education.
