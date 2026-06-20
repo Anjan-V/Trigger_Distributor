@@ -5,6 +5,9 @@ import badgesImage from '../assets/school_badges.png';
 import stateBoardImage from '../assets/state_board_uniforms.png';
 import cbseImage from '../assets/cbse_uniforms.png';
 import sportsImage from '../assets/sports_uniforms_cover.png';
+import stateTextbooksImage from '../assets/state_textbooks.png';
+import ncertBooksImage from '../assets/ncert_books.png';
+import studyGuidesImage from '../assets/study_guides.png';
 import './Category.css';
 
 const Category = () => {
@@ -104,6 +107,56 @@ const Category = () => {
               <h2>Sports & PT Uniforms</h2>
               <p>
                 Our sports uniforms are engineered for peak performance using moisture-wicking, stretchable fabrics. From tracksuits and jerseys to PT kits, each piece is designed for maximum flexibility and comfort during physical activities, ensuring students can move freely on the field and in the gym.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      );
+    }
+
+    if (decodedName === 'School Books & Guides') {
+      return (
+        <div className="container category-items">
+          
+          {/* First Item: State Board Books */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={stateTextbooksImage} alt="State Board Books" />
+              <h3>State Board Books</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>State Government Syllabus Textbooks</h2>
+              <p>
+                We provide official state board textbooks for both Kerala and Tamil Nadu syllabuses. Our comprehensive collection ensures that students have access to the exact curriculum materials required by their state education boards, updated for the current academic year.
+              </p>
+            </div>
+          </div>
+
+          {/* Second Item: NCERT Books */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={ncertBooksImage} alt="NCERT Books" />
+              <h3>NCERT Books</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>CBSE Curriculum (NCERT) Books</h2>
+              <p>
+                Stocking the complete range of NCERT textbooks for CBSE-affiliated schools across all grades. From foundational mathematics to advanced sciences, we ensure reliable access to these essential national curriculum materials with guaranteed authenticity.
+              </p>
+            </div>
+          </div>
+
+          {/* Third Item: Study Guides */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={studyGuidesImage} alt="Study Guides" />
+              <h3>Study Guides</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>Comprehensive Study Guides & Companions</h2>
+              <p>
+                Enhance student learning with our selection of specialized study guides for both State Syllabus and NCERT curriculums. These guides offer detailed explanations, solved examples, and practice questions to support thorough understanding and exam preparation.
               </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 import { BookOpen, Shirt, Shield } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import uniformsComboImage from '../assets/uniforms_combo.png';
-import heroBanner from '../assets/hero_banner.png';
+import booksAndGuidesCoverImage from '../assets/books_and_guides_cover.png';
 import examPapersImage from '../assets/exam_papers.png';
 import packingCoversImage from '../assets/packing_covers.png';
 import socksAccessoriesImage from '../assets/socks_accessories.png';
@@ -14,7 +14,7 @@ const Products = () => {
       title: "School Books & Guides",
       description: "State syllabus, CBSE, and ICSE textbooks, plus comprehensive study guides and premium notebooks.",
       icon: BookOpen,
-      image: heroBanner,
+      image: booksAndGuidesCoverImage,
       delay: "100"
     },
     {
