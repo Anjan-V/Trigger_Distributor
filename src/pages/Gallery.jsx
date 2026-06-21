@@ -1,10 +1,10 @@
 import React from 'react';
-import heroBanner from '../assets/hero_banner.png';
-import schoolSupplies from '../assets/school_supplies.png';
-import sportsUniforms from '../assets/sports_uniforms.png';
-import bulkDispatch from '../assets/bulk_dispatch.png';
-import booksGuides from '../assets/books_guides.png';
-import casualWear from '../assets/casual_wear.png';
+import heroBanner from '../assets/hero_banner.jpg';
+import schoolSupplies from '../assets/school_supplies.jpg';
+import sportsUniforms from '../assets/sports_uniforms.jpg';
+import bulkDispatch from '../assets/bulk_dispatch.jpg';
+import booksGuides from '../assets/books_guides.jpg';
+import casualWear from '../assets/casual_wear.jpg';
 import './Gallery.css';
 
 const Gallery = () => {

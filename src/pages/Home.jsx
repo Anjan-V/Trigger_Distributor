@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpen, Shirt, Shield } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import './Home.css';
-import heroBanner from '../assets/hero_banner.png';
-import booksAndGuidesCoverImage from '../assets/books_and_guides_cover.png';
-import uniformsComboImage from '../assets/uniforms_combo.png';
-import beltsTiesBadgesImage from '../assets/belts_ties_badges.png';
+import heroBanner from '../assets/hero_banner.jpg';
+import booksAndGuidesCoverImage from '../assets/books_and_guides_cover.jpg';
+import uniformsComboImage from '../assets/uniforms_combo.jpg';
+import beltsTiesBadgesImage from '../assets/belts_ties_badges.jpg';
 
 const Home = () => {
   return (

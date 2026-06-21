@@ -1,20 +1,20 @@
 import { useParams } from 'react-router-dom';
 import tieImage from '../assets/Tie.jpeg';
 import beltsImage from '../assets/belts.jpeg';
-import badgesImage from '../assets/school_badges.png';
-import stateBoardImage from '../assets/state_board_uniforms.png';
-import cbseImage from '../assets/cbse_uniforms.png';
-import sportsImage from '../assets/sports_uniforms_cover.png';
-import stateTextbooksImage from '../assets/state_textbooks.png';
-import ncertBooksImage from '../assets/ncert_books.png';
-import icseBooksImage from '../assets/icse_board_books.png';
-import studyGuidesImage from '../assets/combined_study_guides.png';
-import aiExamPaperImage from '../assets/ai_exam_paper.png';
-import aiCover1Image from '../assets/ai_cover_1.png';
-import aiCover2Image from '../assets/ai_cover_2.png';
-import aiCombinedCoversImage from '../assets/ai_combined_covers.png';
-import schoolSocksImage from '../assets/school_socks.png';
-import combinedSocksImage from '../assets/combined_socks.png';
+import badgesImage from '../assets/school_badges.jpg';
+import stateBoardImage from '../assets/state_board_uniforms.jpg';
+import cbseImage from '../assets/cbse_uniforms.jpg';
+import sportsImage from '../assets/sports_uniforms_cover.jpg';
+import stateTextbooksImage from '../assets/state_textbooks.jpg';
+import ncertBooksImage from '../assets/ncert_books.jpg';
+import icseBooksImage from '../assets/icse_board_books.jpg';
+import studyGuidesImage from '../assets/combined_study_guides.jpg';
+import aiExamPaperImage from '../assets/ai_exam_paper.jpg';
+import aiCover1Image from '../assets/ai_cover_1.jpg';
+import aiCover2Image from '../assets/ai_cover_2.jpg';
+import aiCombinedCoversImage from '../assets/ai_combined_covers.jpg';
+import schoolSocksImage from '../assets/school_socks.jpg';
+import combinedSocksImage from '../assets/combined_socks.jpg';
 import './Category.css';
 
 const Category = () => {

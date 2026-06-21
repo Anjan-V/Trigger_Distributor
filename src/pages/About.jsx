@@ -1,6 +1,6 @@
 import React from 'react';
 import './About.css';
-import schoolSuppliesImage from '../assets/school_supplies.png';
+import schoolSuppliesImage from '../assets/school_supplies.jpg';
 
 const About = () => {
   return (
