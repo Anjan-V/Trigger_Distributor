@@ -7,7 +7,8 @@ import cbseImage from '../assets/cbse_uniforms.png';
 import sportsImage from '../assets/sports_uniforms_cover.png';
 import stateTextbooksImage from '../assets/state_textbooks.png';
 import ncertBooksImage from '../assets/ncert_books.png';
-import studyGuidesImage from '../assets/study_guides.png';
+import icseBooksImage from '../assets/icse_board_books.png';
+import studyGuidesImage from '../assets/combined_study_guides.png';
 import aiExamPaperImage from '../assets/ai_exam_paper.png';
 import aiCover1Image from '../assets/ai_cover_1.png';
 import aiCover2Image from '../assets/ai_cover_2.png';
@@ -139,11 +140,11 @@ const Category = () => {
             </div>
           </div>
 
-          {/* Second Item: NCERT Books */}
+          {/* Second Item: CBSE Board Books */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={ncertBooksImage} alt="NCERT Books" />
-              <h3>NCERT Books</h3>
+              <img src={ncertBooksImage} alt="CBSE Board Books" />
+              <h3>CBSE Board Books</h3>
             </div>
             <div className="category-item-content">
               <h2>CBSE Curriculum (NCERT) Books</h2>
@@ -153,7 +154,21 @@ const Category = () => {
             </div>
           </div>
 
-          {/* Third Item: Study Guides */}
+          {/* Third Item: ICSE Board Books */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={icseBooksImage} alt="ICSE Board Books" />
+              <h3>ICSE Board Books</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>ICSE Curriculum Books</h2>
+              <p>
+                We supply a comprehensive range of textbooks aligned with the ICSE curriculum. Featuring materials from leading educational publishers, our collection ensures students have the required resources for a thorough and rigorous academic foundation.
+              </p>
+            </div>
+          </div>
+
+          {/* Fourth Item: Study Guides */}
           <div className="category-item">
             <div className="category-item-image">
               <img src={studyGuidesImage} alt="Study Guides" />

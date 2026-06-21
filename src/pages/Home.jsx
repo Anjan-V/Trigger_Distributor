@@ -4,8 +4,9 @@ import { ArrowRight, BookOpen, Shirt, Shield } from 'lucide-react';
 import ProductCard from '../components/ProductCard';
 import './Home.css';
 import heroBanner from '../assets/hero_banner.png';
-import sportsUniformsImage from '../assets/sports_uniforms.png';
-import schoolSuppliesImage from '../assets/school_supplies.png';
+import booksAndGuidesCoverImage from '../assets/books_and_guides_cover.png';
+import uniformsComboImage from '../assets/uniforms_combo.png';
+import beltsTiesBadgesImage from '../assets/belts_ties_badges.png';
 
 const Home = () => {
   return (
@@ -68,21 +69,21 @@ const Home = () => {
           <h2 className="section-title">Our Premium Supplies</h2>
           <div className="products-grid">
             <ProductCard 
-              title="Books & Guides" 
+              title="School Books & Guides" 
               description="Comprehensive range of textbooks, notebooks, and study guides for all boards."
-              image={heroBanner}
+              image={booksAndGuidesCoverImage}
               delay="100"
             />
             <ProductCard 
               title="School & Sports Uniforms" 
               description="Durable, comfortable sports kits, tracksuits, belts, ties, and daily uniforms."
-              image={sportsUniformsImage}
+              image={uniformsComboImage}
               delay="200"
             />
             <ProductCard 
-              title="Badges & Accessories" 
+              title="Belts, Ties & Badges" 
               description="Custom metal and cloth badges, socks, packing covers, and exam papers."
-              image={schoolSuppliesImage}
+              image={beltsTiesBadgesImage}
               delay="300"
             />
           </div>

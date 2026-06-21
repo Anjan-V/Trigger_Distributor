@@ -4,12 +4,12 @@ import './ProductCard.css';
 
 const ProductCard = ({ title, description, icon: Icon, image, delay }) => {
   return (
-    <div className={`product-card slide-up delay-${delay}`}>
+    <Link to={`/category/${encodeURIComponent(title)}`} className={`product-card slide-up delay-${delay}`} style={{ textDecoration: 'none', color: 'inherit' }}>
       {image ? (
         <div className="product-image-container">
           <img src={image} alt={title} className="product-image" />
           <div className="product-overlay">
-            <Link to={`/category/${encodeURIComponent(title)}`} className="btn btn-primary">View Category</Link>
+            <span className="btn btn-primary">View Category</span>
           </div>
         </div>
       ) : (
@@ -21,7 +21,7 @@ const ProductCard = ({ title, description, icon: Icon, image, delay }) => {
         <h3 className="product-title">{title}</h3>
         <p className="product-description">{description}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
