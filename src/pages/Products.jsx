@@ -3,7 +3,7 @@ import ProductCard from '../components/ProductCard';
 import uniformsComboImage from '../assets/uniforms_combo.png';
 import booksAndGuidesCoverImage from '../assets/books_and_guides_cover.png';
 import examPapersImage from '../assets/exam_papers.png';
-import packingCoversImage from '../assets/packing_covers.png';
+import packingCoversImage from '../assets/ai_packing_covers_hero.png';
 import socksAccessoriesImage from '../assets/socks_accessories.png';
 import beltsTiesBadgesImage from '../assets/belts_ties_badges.png';
 import './Products.css';
