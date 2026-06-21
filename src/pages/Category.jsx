@@ -29,7 +29,7 @@ const Category = () => {
           {/* First Item: Belts */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={beltsImage} alt="Belts" />
+              <img loading="lazy" src={beltsImage} alt="Belts" />
               <h3>Belts</h3>
             </div>
             <div className="category-item-content">
@@ -43,7 +43,7 @@ const Category = () => {
           {/* Second Item: Ties */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={tieImage} alt="Ties" />
+              <img loading="lazy" src={tieImage} alt="Ties" />
               <h3>Ties</h3>
             </div>
             <div className="category-item-content">
@@ -57,7 +57,7 @@ const Category = () => {
           {/* Third Item: Badges */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={badgesImage} alt="Badges" />
+              <img loading="lazy" src={badgesImage} alt="Badges" />
               <h3>Badges</h3>
             </div>
             <div className="category-item-content">
@@ -79,7 +79,7 @@ const Category = () => {
           {/* First Item: State Board Uniforms */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={stateBoardImage} alt="State Board Uniforms" />
+              <img loading="lazy" src={stateBoardImage} alt="State Board Uniforms" />
               <h3>State Board Uniforms</h3>
             </div>
             <div className="category-item-content">
@@ -93,7 +93,7 @@ const Category = () => {
           {/* Second Item: CBSE Uniforms */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={cbseImage} alt="CBSE Uniforms" />
+              <img loading="lazy" src={cbseImage} alt="CBSE Uniforms" />
               <h3>CBSE Uniforms</h3>
             </div>
             <div className="category-item-content">
@@ -107,7 +107,7 @@ const Category = () => {
           {/* Third Item: Sports Uniforms */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={sportsImage} alt="Sports Uniforms" />
+              <img loading="lazy" src={sportsImage} alt="Sports Uniforms" />
               <h3>Sports Uniforms</h3>
             </div>
             <div className="category-item-content">
@@ -129,7 +129,7 @@ const Category = () => {
           {/* First Item: State Board Books */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={stateTextbooksImage} alt="State Board Books" />
+              <img loading="lazy" src={stateTextbooksImage} alt="State Board Books" />
               <h3>State Board Books</h3>
             </div>
             <div className="category-item-content">
@@ -143,7 +143,7 @@ const Category = () => {
           {/* Second Item: CBSE Board Books */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={ncertBooksImage} alt="CBSE Board Books" />
+              <img loading="lazy" src={ncertBooksImage} alt="CBSE Board Books" />
               <h3>CBSE Board Books</h3>
             </div>
             <div className="category-item-content">
@@ -157,7 +157,7 @@ const Category = () => {
           {/* Third Item: ICSE Board Books */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={icseBooksImage} alt="ICSE Board Books" />
+              <img loading="lazy" src={icseBooksImage} alt="ICSE Board Books" />
               <h3>ICSE Board Books</h3>
             </div>
             <div className="category-item-content">
@@ -171,7 +171,7 @@ const Category = () => {
           {/* Fourth Item: Study Guides */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={studyGuidesImage} alt="Study Guides" />
+              <img loading="lazy" src={studyGuidesImage} alt="Study Guides" />
               <h3>Study Guides</h3>
             </div>
             <div className="category-item-content">
@@ -192,7 +192,7 @@ const Category = () => {
 
           <div className="category-item">
             <div className="category-item-image">
-              <img src={aiExamPaperImage} alt="Exam Papers" />
+              <img loading="lazy" src={aiExamPaperImage} alt="Exam Papers" />
               <h3>Exam Papers</h3>
             </div>
             <div className="category-item-content">
@@ -217,7 +217,7 @@ const Category = () => {
           {/* Split 1: Complete Packaging Solutions */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={aiCombinedCoversImage} alt="School Supplies Packaging" />
+              <img loading="lazy" src={aiCombinedCoversImage} alt="School Supplies Packaging" />
               <h3>Complete Packaging</h3>
             </div>
             <div className="category-item-content">
@@ -231,7 +231,7 @@ const Category = () => {
           {/* Split 2: Standard Cover */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={aiCover1Image} alt="Standard Packing Covers" />
+              <img loading="lazy" src={aiCover1Image} alt="Standard Packing Covers" />
               <h3>Standard Covers</h3>
             </div>
             <div className="category-item-content">
@@ -245,7 +245,7 @@ const Category = () => {
           {/* Split 2: Second Cover */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={aiCover2Image} alt="Premium Protective Sleeves" />
+              <img loading="lazy" src={aiCover2Image} alt="Premium Protective Sleeves" />
               <h3>Premium Sleeves</h3>
             </div>
             <div className="category-item-content">
@@ -267,7 +267,7 @@ const Category = () => {
           {/* First Item: School Socks */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={schoolSocksImage} alt="School Socks" />
+              <img loading="lazy" src={schoolSocksImage} alt="School Socks" />
               <h3>School Socks</h3>
             </div>
             <div className="category-item-content">
@@ -281,7 +281,7 @@ const Category = () => {
           {/* Second Item: Sports, Ankle & Half Socks */}
           <div className="category-item">
             <div className="category-item-image">
-              <img src={combinedSocksImage} alt="Sports, Ankle & Half Socks" />
+              <img loading="lazy" src={combinedSocksImage} alt="Sports, Ankle & Half Socks" />
               <h3>Sports & Casual Socks</h3>
             </div>
             <div className="category-item-content">

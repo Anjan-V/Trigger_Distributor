@@ -31,7 +31,7 @@ const Gallery = () => {
           <div className="gallery-grid">
             {images.map((img, index) => (
               <div key={index} className={`gallery-item slide-up delay-${(index % 3 + 1) * 100}`}>
-                <img src={img.src} alt={img.alt} className="gallery-image" />
+                <img loading="lazy" src={img.src} alt={img.alt} className="gallery-image" />
                 <div className="gallery-overlay">
                   <h3 className="gallery-title">{img.title}</h3>
                 </div>

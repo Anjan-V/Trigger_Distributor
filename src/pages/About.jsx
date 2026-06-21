@@ -16,7 +16,7 @@ const About = () => {
         <div className="container">
           <div className="about-grid">
             <div className="about-image-container slide-up">
-              <img src={schoolSuppliesImage} alt="School Supplies" className="about-image" />
+              <img loading="lazy" src={schoolSuppliesImage} alt="School Supplies" className="about-image" />
               <div className="experience-badge">
                 <span className="exp-years">10+</span>
                 <span className="exp-text">Years of Excellence</span>

@@ -7,7 +7,7 @@ const ProductCard = ({ title, description, icon: Icon, image, delay }) => {
     <Link to={`/category/${encodeURIComponent(title)}`} className={`product-card slide-up delay-${delay}`} style={{ textDecoration: 'none', color: 'inherit' }}>
       {image ? (
         <div className="product-image-container">
-          <img src={image} alt={title} className="product-image" />
+          <img loading="lazy" src={image} alt={title} className="product-image" />
           <div className="product-overlay">
             <span className="btn btn-primary">View Category</span>
           </div>
