@@ -40,3 +40,36 @@ This is a modern, responsive website built for Trigger Distributor, a school sup
 
 ## Deployment
 The app can be easily deployed to services like Vercel, Netlify, or Firebase Hosting by running the build command and uploading the `dist` folder.
+
+
+## Rules for Firebase
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /reviews/{reviewId} {
+      allow read: if true;
+
+      allow create: if
+        request.resource.data.keys().hasOnly([
+          'name',
+          'school',
+          'rating',
+          'comment',
+          'delay',
+          'createdAt'
+        ]) &&
+        request.resource.data.name is string &&
+        request.resource.data.school is string &&
+        request.resource.data.comment is string &&
+        request.resource.data.delay is string &&
+        request.resource.data.rating is number &&
+        request.resource.data.rating >= 1 &&
+        request.resource.data.rating <= 5 &&
+        request.resource.data.createdAt is timestamp &&
+        request.resource.data.comment.size() <= 500;
+
+      allow update, delete: if false;
+    }
+  }
+}

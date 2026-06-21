@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
-import { Star, StarHalf } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Star } from 'lucide-react';
 import ReviewCard from '../components/ReviewCard';
+import { db } from '../firebase';
+import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from 'firebase/firestore';
 import './Reviews.css';
 
 const defaultReviews = [
@@ -28,62 +30,78 @@ const defaultReviews = [
 ];
 
 const Reviews = () => {
-  const [formData, setFormData] = useState({ name: '', school: '', rating: '5', customRating: '', comment: '' });
+  const [formData, setFormData] = useState({ name: '', school: '', rating: '5', comment: '' });
   const [submitted, setSubmitted] = useState(false);
-  
-  const [reviews, setReviews] = useState(() => {
-    const savedReviews = localStorage.getItem('triggerReviews');
-    if (savedReviews) {
-      try {
-        const parsed = JSON.parse(savedReviews);
-        const filtered = parsed.filter(r => r.name !== 'Anjan Nair');
-        return filtered.length > 0 ? filtered : defaultReviews;
-      } catch (e) {
-        console.error("Failed to parse reviews from localStorage", e);
-      }
-    }
-    return defaultReviews;
-  });
+  const [reviews, setReviews] = useState(defaultReviews);
+  const [loading, setLoading] = useState(true);
 
-  React.useEffect(() => {
-    localStorage.setItem('triggerReviews', JSON.stringify(reviews));
-  }, [reviews]);
+  useEffect(() => {
+    const q = query(collection(db, 'reviews'), orderBy('createdAt', 'desc'));
+    
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const fetchedReviews = [];
+      querySnapshot.forEach((doc) => {
+        fetchedReviews.push({ id: doc.id, ...doc.data() });
+      });
+      
+      if (fetchedReviews.length > 0) {
+        setReviews(fetchedReviews);
+      } else {
+        setReviews(defaultReviews);
+      }
+      setLoading(false);
+    }, (error) => {
+      console.error("Error fetching reviews from Firestore: ", error);
+      // Fallback to localStorage or defaults if Firestore fails (e.g., permissions)
+      const savedReviews = localStorage.getItem('triggerReviews');
+      if (savedReviews) {
+        setReviews(JSON.parse(savedReviews));
+      }
+      setLoading(false);
+    });
+
+    return () => unsubscribe();
+  }, []);
 
   const handleChange = (e) => {
     let value = e.target.value;
-    
-    // Enforce max 5 immediately on input change for customRating
-    if (e.target.name === 'customRating') {
+
+    // Enforce max 5 immediately on input change for rating
+    if (e.target.name === 'rating') {
       if (parseFloat(value) > 5) value = '5';
     }
 
     setFormData({ ...formData, [e.target.name]: value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    let finalRating = formData.rating === 'custom' ? parseFloat(formData.customRating) : parseInt(formData.rating, 10);
+
+    let finalRating = parseFloat(formData.rating);
     if (isNaN(finalRating)) finalRating = 5;
     if (finalRating > 5) finalRating = 5;
-    if (finalRating < 0) finalRating = 0;
+    if (finalRating < 1) finalRating = 1;
 
     const newReview = {
       name: formData.name,
       school: formData.school,
       rating: finalRating,
       comment: formData.comment,
-      delay: "100"
+      delay: "100",
+      createdAt: serverTimestamp()
     };
-    
-    setReviews([newReview, ...reviews]);
-    
-    // Reset form and show success
-    setFormData({ name: '', school: '', rating: '5', customRating: '', comment: '' });
-    setSubmitted(true);
+
+    try {
+      await addDoc(collection(db, 'reviews'), newReview);
+      setFormData({ name: '', school: '', rating: '5', comment: '' });
+      setSubmitted(true);
+    } catch (error) {
+      console.error("Error adding review: ", error);
+      alert("There was an error submitting your review. Please try again.");
+    }
   };
 
-  const averageRating = reviews.length > 0 
+  const averageRating = reviews.length > 0
     ? (reviews.reduce((acc, curr) => acc + curr.rating, 0) / reviews.length).toFixed(1)
     : 0;
 
@@ -91,12 +109,28 @@ const Reviews = () => {
     return (
       <div className="review-stars overall-stars">
         {[...Array(5)].map((_, i) => {
-          if (rating >= i + 1) {
+          const fillPercentage = Math.max(0, Math.min(100, (rating - i) * 100));
+          if (fillPercentage >= 100) {
             return <Star key={i} size={28} className="star-filled" fill="currentColor" />;
-          } else if (rating >= i + 0.5) {
-            return <StarHalf key={i} size={28} className="star-filled" fill="currentColor" />;
-          } else {
+          } else if (fillPercentage <= 0) {
             return <Star key={i} size={28} className="star-empty" fill="none" />;
+          } else {
+            return (
+              <div key={i} style={{ position: 'relative', display: 'inline-flex' }}>
+                <Star size={28} className="star-empty" fill="none" />
+                <Star
+                  size={28}
+                  className="star-filled"
+                  fill="currentColor"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    clipPath: `inset(0 ${100 - fillPercentage}% 0 0)`
+                  }}
+                />
+              </div>
+            );
           }
         })}
       </div>
@@ -155,33 +189,20 @@ const Reviews = () => {
                   <input type="text" id="school" name="school" required value={formData.school} onChange={handleChange} />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="rating">Rating</label>
-                  <select id="rating" name="rating" value={formData.rating} onChange={handleChange}>
-                    <option value="5">5 - Excellent</option>
-                    <option value="4">4 - Very Good</option>
-                    <option value="3">3 - Average</option>
-                    <option value="2">2 - Poor</option>
-                    <option value="1">1 - Terrible</option>
-                    <option value="custom">Custom</option>
-                  </select>
+                  <label htmlFor="rating">Rating (1-5)</label>
+                  <input
+                    type="number"
+                    id="rating"
+                    name="rating"
+                    min="1"
+                    max="5"
+                    step="0.1"
+                    required
+                    value={formData.rating}
+                    onChange={handleChange}
+                    placeholder="Eg: 1-5"
+                  />
                 </div>
-                {formData.rating === 'custom' && (
-                  <div className="form-group slide-up">
-                    <label htmlFor="customRating">Enter Custom Rating (Max 5)</label>
-                    <input 
-                      type="number" 
-                      id="customRating" 
-                      name="customRating" 
-                      min="0" 
-                      max="5" 
-                      step="0.1" 
-                      required 
-                      value={formData.customRating} 
-                      onChange={handleChange} 
-                      placeholder="e.g. 4.5"
-                    />
-                  </div>
-                )}
                 <div className="form-group">
                   <label htmlFor="comment">Your Review</label>
                   <textarea id="comment" name="comment" rows="4" required value={formData.comment} onChange={handleChange}></textarea>

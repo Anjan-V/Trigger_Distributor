@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, StarHalf } from 'lucide-react';
+import { Star } from 'lucide-react';
 import './ReviewCard.css';
 
 const ReviewCard = ({ name, school, rating, comment, delay }) => {
@@ -7,12 +7,28 @@ const ReviewCard = ({ name, school, rating, comment, delay }) => {
     <div className={`review-card slide-up delay-${delay}`}>
       <div className="review-stars">
         {[...Array(5)].map((_, i) => {
-          if (rating >= i + 1) {
+          const fillPercentage = Math.max(0, Math.min(100, (rating - i) * 100));
+          if (fillPercentage >= 100) {
             return <Star key={i} size={18} className="star-filled" fill="currentColor" />;
-          } else if (rating >= i + 0.5) {
-            return <StarHalf key={i} size={18} className="star-filled" fill="currentColor" />;
-          } else {
+          } else if (fillPercentage <= 0) {
             return <Star key={i} size={18} className="star-empty" fill="none" />;
+          } else {
+            return (
+              <div key={i} style={{ position: 'relative', display: 'inline-flex' }}>
+                <Star size={18} className="star-empty" fill="none" />
+                <Star
+                  size={18}
+                  className="star-filled"
+                  fill="currentColor"
+                  style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    clipPath: `inset(0 ${100 - fillPercentage}% 0 0)`
+                  }}
+                />
+              </div>
+            );
           }
         })}
       </div>
