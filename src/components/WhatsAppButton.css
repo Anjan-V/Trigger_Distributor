@@ -2,7 +2,7 @@
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background-color: #25D366;
+  background-color: var(--color-primary);
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -17,20 +17,20 @@
 
 .whatsapp-btn:hover {
   transform: scale(1.1);
-  box-shadow: 0 15px 25px rgba(37, 211, 102, 0.4);
+  box-shadow: 0 15px 25px rgba(10, 25, 47, 0.4);
   animation: none;
 }
 
 .whatsapp-icon {
   width: 35px;
   height: 35px;
-  fill: white;
+  fill: var(--color-accent);
 }
 
 @keyframes pulse-animation {
-  0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
-  70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0.7); }
+  70% { box-shadow: 0 0 0 15px rgba(255, 193, 7, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(255, 193, 7, 0); }
 }
 
 @media (max-width: 768px) {
