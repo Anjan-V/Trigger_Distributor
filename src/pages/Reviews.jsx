@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Star } from 'lucide-react';
+import { Star, Plus } from 'lucide-react';
 import ReviewCard from '../components/ReviewCard';
 import { db } from '../firebase';
 import { collection, addDoc, query, orderBy, onSnapshot, serverTimestamp } from 'firebase/firestore';
@@ -34,6 +34,7 @@ const Reviews = () => {
   const [submitted, setSubmitted] = useState(false);
   const [reviews, setReviews] = useState(defaultReviews);
   const [loading, setLoading] = useState(true);
+  const [isFormVisible, setIsFormVisible] = useState(false);
 
   useEffect(() => {
     const q = query(collection(db, 'reviews'), orderBy('createdAt', 'desc'));
@@ -148,68 +149,96 @@ const Reviews = () => {
 
       <section className="section">
         <div className="container">
-          <div className="overall-rating-container slide-up">
-            <div className="overall-rating-content">
-              <h2 className="overall-rating-title">Overall Rating</h2>
-              <div className="overall-rating-score-box">
-                <span className="score-number">{averageRating}</span>
-                <span className="score-out-of">/ 5</span>
+          <div className="reviews-actions-header slide-up" style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', gap: '1rem' }}>
+            
+            <div style={{ flex: 1 }}></div>
+
+            <div className="overall-rating-horizontal" style={{ display: 'flex', alignItems: 'center', gap: '1.5rem', background: 'var(--color-surface)', padding: '0.75rem 1.5rem', borderRadius: '10px', boxShadow: 'var(--shadow-sm)', border: '1px solid rgba(0, 0, 0, 0.05)', margin: '0 auto' }}>
+              <h2 className="overall-rating-title" style={{ margin: 0, fontSize: '1.1rem' }}>Overall Rating</h2>
+              <div className="overall-rating-score-box" style={{ margin: 0 }}>
+                <span className="score-number" style={{ fontSize: '1.8rem' }}>{averageRating}</span>
+                <span className="score-out-of" style={{ fontSize: '1rem' }}>/ 5</span>
               </div>
-              {renderStars(parseFloat(averageRating))}
-              <p className="total-reviews-count">Based on {reviews.length} reviews</p>
+              <div style={{ display: 'flex', alignItems: 'center', margin: '-0.5rem 0', transform: 'scale(0.8)', transformOrigin: 'center left' }}>
+                {renderStars(parseFloat(averageRating))}
+              </div>
             </div>
+
+            <div style={{ flex: 1, display: 'flex', justifyContent: 'flex-end' }}>
+              <button 
+                className="btn btn-primary" 
+                onClick={() => setIsFormVisible(!isFormVisible)}
+                style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', height: 'fit-content' }}
+              >
+                <Plus size={20} /> {isFormVisible ? 'Close Form' : (submitted ? 'Submit another review' : 'Add review')}
+              </button>
+            </div>
+
           </div>
+
+          {isFormVisible && (
+            <div className="modal-overlay fade-in" onClick={() => { setIsFormVisible(false); if(submitted) setSubmitted(false); }}>
+              <div className="review-form-container slide-up modal-content" onClick={(e) => e.stopPropagation()}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1.5rem' }}>
+                  <h2 className="section-title" style={{ margin: 0 }}>Leave a Review</h2>
+                  <button 
+                    onClick={() => { setIsFormVisible(false); if(submitted) setSubmitted(false); }} 
+                    style={{ background: 'none', border: 'none', cursor: 'pointer', color: 'var(--color-text-light)', padding: '0.5rem', display: 'flex' }}
+                    aria-label="Close form"
+                  >
+                    <Plus size={28} style={{ transform: 'rotate(45deg)' }} />
+                  </button>
+                </div>
+                
+                {submitted ? (
+                  <div className="success-message" style={{ textAlign: 'center', padding: '2rem 0' }}>
+                    <h3 style={{ color: '#25D366', marginBottom: '1rem', fontSize: '1.5rem' }}>Thank you for your feedback!</h3>
+                    <p style={{ marginBottom: '2rem', color: 'var(--color-text)' }}>Your review has been successfully submitted.</p>
+                    <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center' }}>
+                      <button className="btn btn-secondary" onClick={() => { setIsFormVisible(false); setSubmitted(false); }} style={{ padding: '0.75rem 1.5rem', background: '#f1f5f9', color: '#334155', border: 'none', borderRadius: '5px', cursor: 'pointer', fontWeight: '600' }}>Close</button>
+                      <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Submit Another</button>
+                    </div>
+                  </div>
+                ) : (
+                  <form className="review-form" onSubmit={handleSubmit}>
+                    <div className="form-group">
+                      <label htmlFor="name">Your Name</label>
+                      <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="school">School / Institution Name</label>
+                      <input type="text" id="school" name="school" required value={formData.school} onChange={handleChange} />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="rating">Rating (1-5)</label>
+                      <input
+                        type="number"
+                        id="rating"
+                        name="rating"
+                        min="1"
+                        max="5"
+                        step="0.1"
+                        required
+                        value={formData.rating}
+                        onChange={handleChange}
+                        placeholder="Eg: 1-5"
+                      />
+                    </div>
+                    <div className="form-group">
+                      <label htmlFor="comment">Your Review</label>
+                      <textarea id="comment" name="comment" rows="4" required value={formData.comment} onChange={handleChange}></textarea>
+                    </div>
+                    <button type="submit" className="btn btn-primary submit-btn">Submit Review</button>
+                  </form>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="reviews-grid">
             {reviews.map((review, index) => (
               <ReviewCard key={index} {...review} />
             ))}
-          </div>
-        </div>
-      </section>
-
-      <section className="section submit-review-section">
-        <div className="container">
-          <div className="review-form-container slide-up">
-            <h2 className="section-title">Leave a Review</h2>
-            {submitted ? (
-              <div className="success-message">
-                <h3>Thank you for your feedback!</h3>
-                <p>Your review has been submitted for approval.</p>
-                <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Submit Another</button>
-              </div>
-            ) : (
-              <form className="review-form" onSubmit={handleSubmit}>
-                <div className="form-group">
-                  <label htmlFor="name">Your Name</label>
-                  <input type="text" id="name" name="name" required value={formData.name} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="school">School / Institution Name</label>
-                  <input type="text" id="school" name="school" required value={formData.school} onChange={handleChange} />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="rating">Rating (1-5)</label>
-                  <input
-                    type="number"
-                    id="rating"
-                    name="rating"
-                    min="1"
-                    max="5"
-                    step="0.1"
-                    required
-                    value={formData.rating}
-                    onChange={handleChange}
-                    placeholder="Eg: 1-5"
-                  />
-                </div>
-                <div className="form-group">
-                  <label htmlFor="comment">Your Review</label>
-                  <textarea id="comment" name="comment" rows="4" required value={formData.comment} onChange={handleChange}></textarea>
-                </div>
-                <button type="submit" className="btn btn-primary submit-btn">Submit Review</button>
-              </form>
-            )}
           </div>
         </div>
       </section>
