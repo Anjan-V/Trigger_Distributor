@@ -12,6 +12,8 @@ import aiExamPaperImage from '../assets/ai_exam_paper.png';
 import aiCover1Image from '../assets/ai_cover_1.png';
 import aiCover2Image from '../assets/ai_cover_2.png';
 import aiCombinedCoversImage from '../assets/ai_combined_covers.png';
+import schoolSocksImage from '../assets/school_socks.png';
+import combinedSocksImage from '../assets/combined_socks.png';
 import './Category.css';
 
 const Category = () => {
@@ -235,6 +237,42 @@ const Category = () => {
               <h2>Premium Product Packaging</h2>
               <p>
                 Keep your products and materials pristine with our premium protective sleeves. These robust covers offer a professional aesthetic while providing superior protection against dust, moisture, and everyday wear and tear during distribution.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      );
+    }
+
+    if (decodedName === 'Socks & Accessories') {
+      return (
+        <div className="container category-items">
+
+          {/* First Item: School Socks */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={schoolSocksImage} alt="School Socks" />
+              <h3>School Socks</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>Classic School Socks</h2>
+              <p>
+                Our classic school socks are designed for everyday comfort and durability. Made with breathable, high-quality materials, they offer a perfect fit that stays in place throughout the school day while maintaining a crisp, uniform-approved appearance.
+              </p>
+            </div>
+          </div>
+
+          {/* Second Item: Sports, Ankle & Half Socks */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={combinedSocksImage} alt="Sports, Ankle & Half Socks" />
+              <h3>Sports & Casual Socks</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>Sports, Ankle & Half Socks</h2>
+              <p>
+                Whether you need performance sports socks, lightweight ankle socks, or everyday half crew socks, our collection has you covered. Engineered for active and casual wear, these socks give you exceptional comfort while wearing. We also offer customized colors and designs to perfectly match your school or team requirements.
               </p>
             </div>
           </div>
