@@ -39,7 +39,7 @@ const Products = () => {
     },
     {
       title: "Packing Covers",
-      description: "Durable brown covers, plastic sleeves, and custom-branded packing materials for books.",
+      description: "Durable brown covers, plastic sleeves, and custom-branded packing materials for products and bulk items.",
       image: packingCoversImage,
       delay: "200"
     },

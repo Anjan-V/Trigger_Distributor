@@ -8,6 +8,10 @@ import sportsImage from '../assets/sports_uniforms_cover.png';
 import stateTextbooksImage from '../assets/state_textbooks.png';
 import ncertBooksImage from '../assets/ncert_books.png';
 import studyGuidesImage from '../assets/study_guides.png';
+import aiExamPaperImage from '../assets/ai_exam_paper.png';
+import aiCover1Image from '../assets/ai_cover_1.png';
+import aiCover2Image from '../assets/ai_cover_2.png';
+import aiCombinedCoversImage from '../assets/ai_combined_covers.png';
 import './Category.css';
 
 const Category = () => {
@@ -18,7 +22,7 @@ const Category = () => {
     if (decodedName === 'Belts, Ties & Badges') {
       return (
         <div className="container category-items">
-          
+
           {/* First Item: Belts */}
           <div className="category-item">
             <div className="category-item-image">
@@ -68,7 +72,7 @@ const Category = () => {
     if (decodedName === 'School & Sports Uniforms') {
       return (
         <div className="container category-items">
-          
+
           {/* First Item: State Board Uniforms */}
           <div className="category-item">
             <div className="category-item-image">
@@ -118,7 +122,7 @@ const Category = () => {
     if (decodedName === 'School Books & Guides') {
       return (
         <div className="container category-items">
-          
+
           {/* First Item: State Board Books */}
           <div className="category-item">
             <div className="category-item-image">
@@ -157,6 +161,80 @@ const Category = () => {
               <h2>Comprehensive Study Guides & Companions</h2>
               <p>
                 Enhance student learning with our selection of specialized study guides for both State Syllabus and NCERT curriculums. These guides offer detailed explanations, solved examples, and practice questions to support thorough understanding and exam preparation.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      );
+    }
+
+    if (decodedName === 'Exam Papers') {
+      return (
+        <div className="container category-items">
+
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={aiExamPaperImage} alt="Exam Papers" />
+              <h3>Exam Papers</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>High-Quality Exam Papers</h2>
+              <p>
+                We offer standardized examination answer sheets, graph papers, and custom-printed school exam booklets. Designed for clear writing and durability, our exam papers ensure a professional testing experience for all students.
+              </p>
+              <ul style={{ textAlign: 'left', marginTop: '1rem', color: 'var(--text-color)' }}>
+                <li><strong>Customizable:</strong> We can create custom exam answer papers tailored to your specific requirements, including your school's branding and layout preferences.</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      );
+    }
+
+    if (decodedName === 'Packing Covers') {
+      return (
+        <div className="container category-items">
+
+          {/* Split 1: Complete Packaging Solutions */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={aiCombinedCoversImage} alt="School Supplies Packaging" />
+              <h3>Complete Packaging</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>Complete Packaging Solutions</h2>
+              <p>
+                Enhance your school supply kits with our vibrant assortment of packaging solutions. We offer colorful paper rolls, fun name labels, and transparent grid book covers designed to make organizing and protecting school materials both engaging and highly efficient.
+              </p>
+            </div>
+          </div>
+
+          {/* Split 2: Standard Cover */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={aiCover1Image} alt="Standard Packing Covers" />
+              <h3>Standard Covers</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>Standard Material Packaging</h2>
+              <p>
+                Our standard packing covers are manufactured from high-quality, durable materials. They provide an excellent protective layer for bulk materials, school uniforms, and various products, ensuring they remain secure and undamaged during transit and storage.
+              </p>
+            </div>
+          </div>
+
+          {/* Split 2: Second Cover */}
+          <div className="category-item">
+            <div className="category-item-image">
+              <img src={aiCover2Image} alt="Premium Protective Sleeves" />
+              <h3>Premium Sleeves</h3>
+            </div>
+            <div className="category-item-content">
+              <h2>Premium Product Packaging</h2>
+              <p>
+                Keep your products and materials pristine with our premium protective sleeves. These robust covers offer a professional aesthetic while providing superior protection against dust, moisture, and everyday wear and tear during distribution.
               </p>
             </div>
           </div>
