@@ -1,51 +1,55 @@
-# Trigger Distributor Website
+## Trigger Distributors
 
-This is a modern, responsive website built for Trigger Distributor, a school supplies distribution business based in Thrissur District, Kerala.
+A modern and responsive business website developed for Trigger Distributors. The platform provides customers with easy access to company information, products, services, customer reviews, and contact details through an intuitive and user-friendly interface.
 
-## Technologies Used
-- React
-- Vite
-- React Router DOM
-- Lucide React (for icons)
-- Vanilla CSS (for custom styling and design system)
-
-## Key Features
-- **Responsive Design**: Mobile-first design perfectly adapted for phones, tablets, and desktops.
-- **Modern Aesthetics**: A professional color palette combining Navy Blue, Royal Blue, White, and Gold accents.
-- **Micro-Animations**: Smooth slide-ups and fade-ins for better user experience.
-- **WhatsApp Integration**: Floating quick-contact WhatsApp button.
-- **Component Based**: Clean, reusable React components (`ProductCard`, `ReviewCard`, etc.).
-
-## Setup Instructions
-
-1. **Install dependencies:**
-   ```bash
+## Features
+   Responsive and mobile-friendly design
+   Product and service showcase
+   Customer review and feedback system
+   Interactive charts and analytics
+   Contact and enquiry section
+   PDF export functionality
+   Firebase Firestore integration
+   Modern and intuitive user interface
+   
+## Technology Stack
+   ## Frontend
+      React 18
+      Vite
+      React Router DOM
+      HTML5
+      CSS3
+      JavaScript (ES6+)
+   ## Data & Visualization
+      Chart.js
+      React ChartJS 2
+   ## Backend Services
+      Firebase Firestore
+   ## Additional Libraries
+      Lucide React
+      jsPDF
+      
+## Installation
+   git clone https://github.com/your-username/your-repository.git
+   cd your-repository
    npm install
-   ```
-
-2. **Run development server:**
-   ```bash
    npm run dev
-   ```
-
-3. **Build for production:**
-   ```bash
+   
+## Production Build
    npm run build
-   ```
-
-## Structure
-- `src/components`: Reusable UI elements (Header, Footer, Cards).
-- `src/pages`: Distinct application views (Home, About, Products, etc.).
-- `src/assets`: Images and static resources.
-
-## Deployment
-The app can be easily deployed to services like Vercel, Netlify, or Firebase Hosting by running the build command and uploading the `dist` folder.
-
-
+   
+## Project Objectives
+   Establish a professional online presence
+   Improve customer engagement
+   Showcase products and services effectively
+   Collect and display customer feedback
+   Provide easy access to business information
+   
 ## Rules for Firebase
 rules_version = '2';
 
 service cloud.firestore {
+
   match /databases/{database}/documents {
     match /reviews/{reviewId} {
       allow read: if true;
@@ -72,4 +76,9 @@ service cloud.firestore {
       allow update, delete: if false;
     }
   }
+
+  ## Author
+Anjan V
+B.Tech Artificial Intelligence and Data Science
+Saranathan College of Engineering, Tiruchirappalli
 }
