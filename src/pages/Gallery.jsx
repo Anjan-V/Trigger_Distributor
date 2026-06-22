@@ -1,21 +1,37 @@
 import React from 'react';
-import heroBanner from '../assets/hero_banner.jpg';
-import schoolSupplies from '../assets/school_supplies.jpg';
-import sportsUniforms from '../assets/sports_uniforms.jpg';
-import bulkDispatch from '../assets/bulk_dispatch.jpg';
-import booksGuides from '../assets/books_guides.jpg';
-import casualWear from '../assets/casual_wear.jpg';
+
 import './Gallery.css';
 
+const galleryModules = import.meta.glob('../../Images/Gallery/*.{jpeg,jpg,png,webp}', { eager: true, import: 'default' });
+
+const images = Object.keys(galleryModules)
+  .sort((a, b) => {
+    const matchA = a.match(/(\d+)\.\w+$/);
+    const matchB = b.match(/(\d+)\.\w+$/);
+    const numA = matchA ? parseInt(matchA[1], 10) : 0;
+    const numB = matchB ? parseInt(matchB[1], 10) : 0;
+    return numA - numB;
+  })
+  .map(key => ({
+    src: galleryModules[key],
+    alt: `Gallery Image`,
+    title: `Gallery Image`
+  }));
+
 const Gallery = () => {
-  const images = [
-    { src: heroBanner, alt: "Premium School Supplies Collection", title: "Premium Supplies" },
-    { src: schoolSupplies, alt: "Badges and Ties setup", title: "Badges & Accessories" },
-    { src: sportsUniforms, alt: "School Sports Jerseys", title: "School & Sports Uniforms" },
-    { src: bulkDispatch, alt: "Packed Orders ready for dispatch", title: "Bulk Dispatch" },
-    { src: booksGuides, alt: "Exam Papers and Guides", title: "Books & Guides" },
-    { src: casualWear, alt: "Casual Wear Collection", title: "Casual Wear" }
-  ];
+  const [selectedImage, setSelectedImage] = React.useState(null);
+
+  const openLightbox = (imgSrc) => {
+    setSelectedImage(imgSrc);
+    // Prevent scrolling on the body when modal is open
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeLightbox = () => {
+    setSelectedImage(null);
+    // Re-enable scrolling
+    document.body.style.overflow = 'auto';
+  };
 
   return (
     <div className="gallery-page">
@@ -23,6 +39,7 @@ const Gallery = () => {
         <div className="container">
           <h1 className="page-title fade-in">Our Gallery</h1>
           <p className="page-subtitle fade-in delay-100">A glimpse into our products and operations.</p>
+          <p className="mobile-instruction fade-in delay-200">Tap on any image to view it full screen</p>
         </div>
       </div>
 
@@ -30,16 +47,25 @@ const Gallery = () => {
         <div className="container">
           <div className="gallery-grid">
             {images.map((img, index) => (
-              <div key={index} className={`gallery-item slide-up delay-${(index % 3 + 1) * 100}`}>
+              <div 
+                key={index} 
+                className={`gallery-item slide-up delay-${(index % 3 + 1) * 100}`}
+                onClick={() => openLightbox(img.src)}
+              >
                 <img loading="lazy" src={img.src} alt={img.alt} className="gallery-image" />
-                <div className="gallery-overlay">
-                  <h3 className="gallery-title">{img.title}</h3>
-                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Lightbox Modal */}
+      {selectedImage && (
+        <div className="lightbox-modal" onClick={closeLightbox}>
+          <button className="lightbox-close" onClick={closeLightbox}>&times;</button>
+          <img src={selectedImage} alt="Fullscreen View" className="lightbox-image" onClick={(e) => e.stopPropagation()} />
+        </div>
+      )}
     </div>
   );
 };
